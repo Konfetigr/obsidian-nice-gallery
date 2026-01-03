@@ -75,6 +75,33 @@ Create image galleries using code blocks:
 - **Navigate**: Arrow keys, swipe (mobile), or click arrows
 - **Close**: Click image, or press Escape
 
+### Templater script
+
+Select all the images you wish to add to the gallery and run the Templater script, and it will merge them.
+
+<%*
+const editor = this.app.workspace.activeEditor?.editor;
+if (!editor) return;
+
+const selection = editor.getSelection();
+
+if (selection) {
+    const galleryBlock = `\`\`\`gallery\n${selection}\n\`\`\``;
+    editor.replaceSelection(galleryBlock);
+} else {
+    const content = editor.getValue();
+    const imageRegex = /!\[\[.*?\]\]/g;
+    const images = content.match(imageRegex);
+    
+    if (images && images.length > 0) {
+        const galleryBlock = `\`\`\`gallery\n${images.join('\n')}\n\`\`\``;
+        editor.setValue(galleryBlock);
+    } else {
+        new Notice('No images found in document');
+    }
+}
+%>
+
 ---
 
 ## 📄 License
