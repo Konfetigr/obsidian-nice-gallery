@@ -2,6 +2,8 @@
   <b>Языки:</b> 🇬🇧 [English](README.md)
 </div>
 
+# [Русская версия](https://github.com/Konfetigr/obsidian-nice-gallery/blob/main/README-ru.md)
+
 # Image Gallery & Viewer Plugin for Obsidian
 
 A simple image gallery and viewer plugin for Obsidian that transforms how you view and organize images in your notes. Features responsive galleries, advanced image viewing with zoom and pan, and seamless mobile support.
