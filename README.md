@@ -78,7 +78,7 @@ Create image galleries using code blocks:
 ### Templater script
 
 Select all the images you wish to add to the gallery and run the Templater script, and it will merge them.
-
+```
 <%*
 const editor = this.app.workspace.activeEditor?.editor;
 if (!editor) return;
@@ -101,7 +101,7 @@ if (selection) {
     }
 }
 %>
-
+```
 ---
 
 ## 📄 License
