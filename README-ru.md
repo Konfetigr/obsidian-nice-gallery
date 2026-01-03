@@ -1,6 +1,3 @@
----
-cover: Attachments/055a896c36324bf83afea17e166d7b3a_MD5.jpg
----
 <div align="right">
   <b>Languages:</b> 🇷🇺 [Russian](README-ru.md)
 </div>
@@ -19,15 +16,14 @@ cover: Attachments/055a896c36324bf83afea17e166d7b3a_MD5.jpg
 
 <img width="921" height="322" alt="Nice Gallery Readme-1767434763975" src="https://github.com/user-attachments/assets/d2556cc9-06a5-4566-bb18-7c08ac5e7930" />
 
+---
+
+![Nice Gallery Readme-1767434848132](https://github.com/user-attachments/assets/9044c0ff-0e25-4cb4-b3f1-8106935049c7)
+
 
 ---
 
-![[Attachments/055a896c36324bf83afea17e166d7b3a_MD5.jpg]]
-
-
----
-
-![[Attachments/c091bcfbb5741e010a22a32e8580061f_MD5.jpg]]
+![Nice Gallery Readme-1767435038425](https://github.com/user-attachments/assets/d46cf58e-bcd5-47c2-8a4f-556bd4a53856)
 
 
 ---
