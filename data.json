@@ -1,0 +1,12 @@
+{
+  "maxColumnsDesktop": 6,
+  "maxColumnsTablet": 3,
+  "maxColumnsMobile": 2,
+  "gapSize": "12px",
+  "enableSingleImages": false,
+  "columnsDesktop": 6,
+  "columnsTablet": 4,
+  "columnsMobile": 2,
+  "thumbnailSize": "400px",
+  "minThumbnailSize": "300px"
+}

@@ -1,0 +1,337 @@
+/* Общие стили галереи */
+.gallery-grid {
+    display: grid;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.gallery-item {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-secondary);
+    position: relative;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+}
+
+.gallery-item img:hover {
+    opacity: 0.9;
+}
+
+/* Lightbox стили */
+.lg-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.95);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.lg-backdrop.in {
+    opacity: 1;
+}
+
+.lg-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    overflow: hidden;
+    touch-action: pan-y pinch-zoom;
+}
+
+.lg-image-container.dragging {
+    cursor: grabbing;
+}
+
+.lg-image {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: transform 0.2s ease-out;
+    transform-origin: center center;
+    pointer-events: auto;
+    cursor: default;
+}
+
+.lg-image.swiping {
+    transition: transform 0.1s ease-out;
+}
+
+.lg-image.zooming {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lg-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    z-index: 10001;
+    position: fixed;
+    border: none;
+    outline: none;
+    line-height: 0px;
+}
+
+.lg-btn:hover {
+   /* background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);*/
+}
+
+.lg-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lg-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lg-counter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    z-index: 10001;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.lg-zoom-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10001;
+}
+
+.lg-thumbnails {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) rgba(255,255,255,0.1);
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.lg-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.lg-thumbnails::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.lg-thumbnails::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+}
+
+.lg-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.lg-thumbnail:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.lg-thumbnail.active {
+    opacity: 1;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Индикатор свайпа */
+.lg-swipe-indicator {
+    position: fixed;
+    top: 50%;
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.lg-swipe-indicator.left {
+    left: 30px;
+}
+
+.lg-swipe-indicator.right {
+    right: 30px;
+}
+
+.lg-swipe-indicator.visible {
+    opacity: 0.7;
+}
+
+/* Адаптивные стили для мобильных */
+@media (max-width: 768px) {
+    .lg-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .lg-prev, .lg-next {
+        padding: 15px 5px;
+    }
+    
+    .lg-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .lg-image {
+        max-width: calc(100vw - 20px);
+        max-height: calc(100vh - 20px);
+    }
+    
+    /* Скрываем миниатюры на очень маленьких экранах */
+    @media (max-width: 480px) {
+        .lg-thumbnails {
+            bottom: 60px;
+            max-width: 90%;
+        }
+        
+        .lg-thumbnail {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .lg-prev, .lg-next {
+            opacity: 0.7;
+        }
+        
+        .lg-prev:active, .lg-next:active {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+    }
+}
+
+/* Стили для документации в настройках */
+.gallery-version-info {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.gallery-doc-container {
+    margin-top: 30px;
+}
+
+.gallery-doc-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--background-primary);
+    border-radius: 8px;
+    border: 1px solid var(--background-modifier-border);
+}
+
+.gallery-doc-section h4 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: 8px;
+}
+
+.gallery-doc-section ul {
+    padding-left: 20px;
+}
+
+.gallery-doc-section li {
+    margin-bottom: 5px;
+}
+
+.gallery-doc-section pre {
+    margin: 10px 0;
+    background: var(--background-secondary);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.gallery-doc-section code {
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 14px;
+}
+
+.gallery-doc-section + .gallery-doc-section {
+    margin-top: 30px;
+    border-top: 2px solid var(--background-modifier-border);
+}
