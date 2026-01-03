@@ -5,6 +5,7 @@
   "minAppVersion": "0.15.0",
   "description": "Convert code blocks with ![[images]] into interactive galleries",
   "author": "@Konfetigr",
-  "authorUrl": "@konfetigr",
+  "authorUrl": "https://github.com/Konfetigr/obsidian-nice-gallery/",
   "isDesktopOnly": false
+
 }
