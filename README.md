@@ -6,10 +6,16 @@
 
 A simple image gallery and viewer plugin for Obsidian that transforms how you view and organize images in your notes. Features responsive galleries, advanced image viewing with zoom and pan, and seamless mobile support.
 
+
+---
+
+# Differences from Competitors
+
+The main distinction from similar plugins is that you can create a gallery within a specific note based on the attachments that have already been added. In other plugins I found, you are prompted to select a folder containing images from which a magnificent gallery will be generated. This is particularly useful when you have a large knowledge base without folder-based organization.
+
 ---
 
 <img width="921" height="322" alt="Nice Gallery Readme-1767434763975" src="https://github.com/user-attachments/assets/d2556cc9-06a5-4566-bb18-7c08ac5e7930" />
-
 
 ---
 
