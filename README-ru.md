@@ -2,7 +2,7 @@
   <b>Languages:</b> 🇷🇺 [Russian](README-ru.md)
 </div>
 
-[English version](https://github.com/Konfetigr/obsidian-nice-gallery/blob/main/README.md)
+# [English version](https://github.com/Konfetigr/obsidian-nice-gallery/blob/main/README.md)
 
 # Плагин галереи и просмотра изображений для Obsidian
 
