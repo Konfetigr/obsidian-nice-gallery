@@ -335,3 +335,63 @@
     margin-top: 30px;
     border-top: 2px solid var(--background-modifier-border);
 }
+
+
+/* Стиль для отдельных изображений */
+        .markdown-source-view img:not(.gallery-item img),
+        .markdown-preview-view img:not(.gallery-item img) {
+            /*cursor: zoom-in;*/
+            transition: opacity 0.2s ease;
+        }
+        
+        .markdown-source-view img:not(.gallery-item img):hover,
+        .markdown-preview-view img:not(.gallery-item img):hover {
+            opacity: 0.9;
+        }
+        
+        /* ДОБАВЛЕНО: Отключаем изменение размеров в галерее */
+        .gallery-container .image-embed,
+        .gallery-container .internal-embed.image-embed {
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .gallery-container .image-resize-container,
+        .gallery-container .image-embed:hover .image-resize-container {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+        
+        .gallery-container img {
+            pointer-events: none;
+        }
+        
+        /* ДОБАВЛЕНО: Восстанавливаем курсор для галереи 
+        .gallery-item {
+            cursor: zoom-in;
+        }*/
+        
+        /* ДОБАВЛЕНО: Предотвращаем появление границ изменения размера */
+        .gallery-container .image-embed::after,
+        .gallery-container .image-embed::before {
+            display: none !important;
+        }
+        
+        .gallery-container .image-embed {
+            border: none !important;
+            margin: 0 !important;
+        }
+        
+        /* ДОБАВЛЕНО: Убираем обертки Obsidian для изображений в галерее */
+        .gallery-container .image-embed > img {
+            pointer-events: auto;
+            cursor: zoom-in;
+        }
+        
+        /* ДОБАВЛЕНО: Убираем рамки при наведении */
+        .gallery-container .image-embed:hover {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: transparent !important;
+        }

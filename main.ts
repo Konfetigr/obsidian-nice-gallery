@@ -26,6 +26,7 @@ export default class ImageGalleryPlugin extends Plugin {
     private dragOffsetY: number = 0;
     private styleEl: HTMLStyleElement;
     private activeLightbox: HTMLElement | null = null;
+    private keyHandler: ((e: KeyboardEvent) => void) | null = null; // <-- Добавьте это
     
     // Для обработки свайпов
     private touchStartX: number = 0;
@@ -556,14 +557,14 @@ export default class ImageGalleryPlugin extends Plugin {
         });
         
         // Навигация клавишами
-        const keyHandler = (e: KeyboardEvent) => {
+        this.keyHandler = (e: KeyboardEvent) => { // <-- Используйте this.keyHandler вместо const keyHandler
             if (e.key === 'Escape') {
                 closeLightbox();
             } else if (images.length > 1) {
                 if (e.key === 'ArrowLeft') {
-                    switchImage('prev'); // Было 'next'
+                    switchImage('prev');
                 } else if (e.key === 'ArrowRight') {
-                    switchImage('next'); // Было 'prev'
+                    switchImage('next');
                 }
             }
 
@@ -581,8 +582,8 @@ export default class ImageGalleryPlugin extends Plugin {
                 img.style.transform = `translate(0px, 0px) scale(1)`;
             }
         };
-        
-        document.addEventListener('keydown', keyHandler);
+
+        document.addEventListener('keydown', this.keyHandler);
         
         // Закрытие по клику на backdrop (любую область)
         backdrop.addEventListener('click', (e) => {
@@ -604,6 +605,12 @@ export default class ImageGalleryPlugin extends Plugin {
     
     private closeLightbox() {
         if (this.activeLightbox) {
+        // Удаляем обработчик клавиш
+            if (this.keyHandler) {
+                document.removeEventListener('keydown', this.keyHandler);
+                this.keyHandler = null;
+            }
+
             document.body.removeChild(this.activeLightbox);
             this.activeLightbox = null;
             document.body.style.overflow = '';
